@@ -10,9 +10,10 @@ public class Main {
      * Finds the largest closest value to zero and returns it.
      * @param arr Array to search a value
      * @return Closest largest value
+     * @throws IllegalArgumentException if array is empty
      */
     public static int findClosestToZero(int [] arr){
-        if (arr.length == 0) return 0;
+        if (arr.length == 0) throw new IllegalArgumentException("Array must not be empty.");
         int minDistance = Arrays.stream(arr).map(Math::abs).min().getAsInt();
         int[] results = Arrays.stream(arr).filter(value -> Math.abs(value) == minDistance).toArray();
         return Arrays.stream(results).max().getAsInt();

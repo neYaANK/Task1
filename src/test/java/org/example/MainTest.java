@@ -29,11 +29,11 @@ public class MainTest {
         Assert.assertEquals(-2, Main.findClosestToZero(arr));
     }
     /**
-     * Checks if the method works with empty array
+     * Checks if the method handles empty array properly
      */
     @Test
     public void findClosestToZero_EmptyArray() {
         int[] arr = {};
-        Assert.assertEquals(0, Main.findClosestToZero(arr));
+        Assert.assertThrows(IllegalArgumentException.class, () -> Main.findClosestToZero(arr));
     }
 }
