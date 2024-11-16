@@ -4,18 +4,36 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MainTest {
-
+    /**
+     * Checks if the method works with normal case scenario
+     */
     @Test
-    public void findClosestToZero() {
-        int[] arr1 = {-3,1,2,3,4,5};
-        int[] arr2 = {1,-3,3,4,5};
-        int[] arr3 = {3,-3,3,4,5};
-        int[] arr4 = {4,3,3,3,-2};
-        int[] arr5 = {};
-        Assert.assertEquals(1, Main.findClosestToZero(arr1));
-        Assert.assertEquals(1, Main.findClosestToZero(arr2));
-        Assert.assertEquals(3, Main.findClosestToZero(arr3));
-        Assert.assertEquals(-2, Main.findClosestToZero(arr4));
-        Assert.assertEquals(0, Main.findClosestToZero(arr5));
+    public void findClosestToZero_NormalCase() {
+        int[] arr = {-3,1,2,3,4,5};
+        Assert.assertEquals(1, Main.findClosestToZero(arr));
+    }
+    /**
+     * Checks if the method returns correct value with negative and positive closest values
+     */
+    @Test
+    public void findClosestToZero_NegativeOrPositive() {
+        int[] arr = {3,-3,3,4,5};
+        Assert.assertEquals(3, Main.findClosestToZero(arr));
+    }
+    /**
+     * Checks if the method can return negative value
+     */
+    @Test
+    public void findClosestToZero_OnlyNegative() {
+        int[] arr = {4,3,3,3,-2};
+        Assert.assertEquals(-2, Main.findClosestToZero(arr));
+    }
+    /**
+     * Checks if the method works with empty array
+     */
+    @Test
+    public void findClosestToZero_EmptyArray() {
+        int[] arr = {};
+        Assert.assertEquals(0, Main.findClosestToZero(arr));
     }
 }
